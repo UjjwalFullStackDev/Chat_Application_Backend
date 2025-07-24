@@ -1,0 +1,38 @@
+# Node.js
+node_modules/
+.env
+.env.*    # for .env.development, .env.production etc.
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# Vite / React
+dist/
+build/
+.vite/
+
+# Logs
+logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+
+# Optional
+*.local
+*.cache
+*.swp
+*.swo
+
+# Socket.io generated files (if any persist)
+*.pid
+
+# Coverage / test reports
+coverage/
+*.lcov
