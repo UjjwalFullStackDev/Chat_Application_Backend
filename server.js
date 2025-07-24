@@ -16,13 +16,12 @@ const server = http.createServer(app);
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://chat-application-frontent.vercel.app/"
+  "https://chat-application-frontent.vercel.app"
 ];
 
 // CORS configuration
 app.use(cors({
   origin: (origin, callback) => {
-    // Allow requests with no origin (like Postman) or whitelisted
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
