@@ -16,7 +16,7 @@ const server = http.createServer(app);
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://chat-application-u1tp.vercel.app"
+  "https://chat-application-frontent.vercel.app/"
 ];
 
 // CORS configuration
