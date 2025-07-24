@@ -14,18 +14,28 @@ const Message = require('./models/Message');
 const app = express();
 const server = http.createServer(app);
 
-const CLIENT_ORIGIN = process.env.CLIENT_URL || "http://localhost:5173";
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://chat-application-u1tp.vercel.app"
+];
 
 // CORS configuration
 app.use(cors({
-  origin: CLIENT_ORIGIN,
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like Postman) or whitelisted
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   credentials: true
 }));
 
 // Socket.IO configuration
 const io = socketIo(server, {
   cors: {
-    origin: CLIENT_ORIGIN,
+    origin: allowedOrigins,
     methods: ["GET", "POST"]
   }
 });
